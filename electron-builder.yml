@@ -3,7 +3,7 @@ productName: Frinedo
 publish:
   provider: github
   owner: YASSER-27
-  repo: mice_frinedo
+  repo: Frinedo
 directories:
   output: release
   buildResources: resources

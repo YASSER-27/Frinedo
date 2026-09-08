@@ -1,6 +1,6 @@
 {
   "name": "frinedo",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Frinedo Minecraft bot controller with Electron + TypeScript",
   "main": "dist/main/main.js",
   "scripts": {
@@ -19,7 +19,7 @@
   "homepage": "https://github.com/YASSER-27",
   "repository": {
     "type": "git",
-    "url": "https://github.com/YASSER-27"
+    "url": "git+https://github.com/YASSER-27/Frinedo.git"
   },
   "license": "MIT",
   "dependencies": {

@@ -1,5 +1,7 @@
 # Frinedo
 
+<img width="1200" height="630" alt="showcase_Minecraft" src="https://github.com/user-attachments/assets/77c8d963-666d-40e4-8d2b-a00d7ee5b06e" />
+
 ![Version](https://img.shields.io/badge/version-1.1.4-blue)
 ![Platform](https://img.shields.io/badge/platform-Windows-lightgrey)
 ![Electron](https://img.shields.io/badge/Electron-Desktop-47848F?logo=electron&logoColor=white)
@@ -8,6 +10,8 @@
 ![License](https://img.shields.io/badge/license-MIT-green)
 ![Node](https://img.shields.io/badge/node-%3E%3D18-339933?logo=node.js&logoColor=white)
 ![GitHub release](https://img.shields.io/github/v/release/YASSER-27/Frinedo)
+
+[Readme_AR](README.ar.md)
 
 Frinedo is an offline desktop Minecraft companion project built with Electron, React, TypeScript, Mineflayer, and optional local Supertonic TTS. It is made for enjoying Minecraft with bot friends that can follow you, protect you, gather resources, craft tools, explore the world, and help you learn the game.
 

@@ -1,16 +1,32 @@
 # Frinedo
 
+<img width="1200" height="630" alt="showcase_Minecraft" src="https://github.com/user-attachments/assets/77c8d963-666d-40e4-8d2b-a00d7ee5b06e" />
+
+![Version](https://img.shields.io/badge/version-1.1.4-blue)
+![Platform](https://img.shields.io/badge/platform-Windows-lightgrey)
+![Electron](https://img.shields.io/badge/Electron-Desktop-47848F?logo=electron&logoColor=white)
+![React](https://img.shields.io/badge/React-TypeScript-61DAFB?logo=react&logoColor=white)
+![Mineflayer](https://img.shields.io/badge/Mineflayer-Minecraft%20Bot-brightgreen)
+![License](https://img.shields.io/badge/license-MIT-green)
+![Node](https://img.shields.io/badge/node-%3E%3D18-339933?logo=node.js&logoColor=white)
+![GitHub release](https://img.shields.io/github/v/release/YASSER-27/Frinedo)
+
+[Readme_AR](README.ar.md)
+
 Frinedo is an offline desktop Minecraft companion project built with Electron, React, TypeScript, Mineflayer, and optional local Supertonic TTS. It is made for enjoying Minecraft with bot friends that can follow you, protect you, gather resources, craft tools, explore the world, and help you learn the game.
 
-Version: **0.1.4**
-
-Author: **YASSER-27**
-
-GitHub: https://github.com/YASSER-27
+Version: **1.1.4**
 
 ## Project Idea
 
 Frinedo is designed for offline Minecraft play with bot friends. You can play normally while one or more companion bots join your LAN world, respond to commands, help with early-game tasks, and make the world feel more alive without requiring an online AI service.
+>Minecraft
+<img width="1110" height="562" alt="image" src="https://github.com/user-attachments/assets/fb508737-f25b-4914-bee2-c4f4b0225aee" />
+
+>Frinedo App
+<img width="1110" height="680" alt="image" src="https://github.com/user-attachments/assets/b1896524-a8ce-4ba3-843c-88d88cfbf7de" />
+
+
 
 ## Features
 
@@ -127,3 +143,7 @@ Only Start voice files are used for built-in commands. Done messages remain text
 ## License
 
 MIT
+
+Author: **YASSER-27**
+
+[GitHub:](https://github.com/YASSER-27)

@@ -1,0 +1,9 @@
+# Supertonic TTS resources
+
+The project's TTS files live in the parent `tts/` folder.
+Configure the path in app settings (default: `./tts`).
+
+Expected structure:
+- tts_worker.py
+- onnx/ (model files)
+- voice_styles/

@@ -1,0 +1,33 @@
+appId: com.minecraft.botcontroller
+productName: Frinedo
+publish:
+  provider: github
+  owner: YASSER-27
+  repo: mice_frinedo
+directories:
+  output: release
+  buildResources: resources
+files:
+  - dist/**/*
+  - package.json
+extraResources:
+  - from: data
+    to: data
+    filter:
+      - "**/*"
+  - from: src/public
+    to: public
+    filter:
+      - "**/*"
+win:
+  target:
+    - nsis
+  icon: resources/icon.ico
+mac:
+  target:
+    - dmg
+  icon: resources/icon.png
+linux:
+  target:
+    - AppImage
+  icon: resources/icon.png

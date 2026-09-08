@@ -1,0 +1,15 @@
+{
+  "host": "localhost",
+  "port": 1234,
+  "username": "SteveBot",
+  "version": "",
+  "muted": false,
+  "voiceHelpEnabled": true,
+  "voiceHelpVoice": "M2",
+  "voiceHelpLanguage": "ar",
+  "botPlayers": [
+    "b1",
+    "a1",
+    ""
+  ]
+}

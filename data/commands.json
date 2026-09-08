@@ -1,0 +1,953 @@
+[
+  {
+    "id": "cmd-1788875250224",
+    "triggerPhrases": [
+      "bring me 10 wood"
+    ],
+    "actionType": "collectBlocks",
+    "actionParams": {
+      "blockType": "oak_log",
+      "count": 10
+    },
+    "responseStart": "Okay, I will get 10 oak log.",
+    "responseDone": "Finished collecting oak log.",
+    "voiceStartVariants": {
+      "en:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\F1\\bring-wood-start.wav",
+      "en:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\M2\\bring-wood-start.wav",
+      "ar:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\F1\\bring-wood-start.wav",
+      "ar:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\M2\\bring-wood-start.wav"
+    }
+  },
+  {
+    "id": "cmd-1788877549759",
+    "triggerPhrases": [
+      "follow me"
+    ],
+    "actionType": "followPlayer",
+    "actionParams": {
+      "distance": 3
+    },
+    "responseStart": "Okay, following you.",
+    "responseDone": "",
+    "voiceStartPath": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\1788877543003-start.wav",
+    "voiceStartVariants": {
+      "en:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\F1\\follow-me-start.wav",
+      "en:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\M2\\follow-me-start.wav",
+      "ar:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\F1\\follow-me-start.wav",
+      "ar:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\M2\\follow-me-start.wav"
+    }
+  },
+  {
+    "id": "builtin-show-me",
+    "triggerPhrases": [
+      "show me"
+    ],
+    "actionType": "showInventory",
+    "actionParams": {},
+    "responseStart": "Here is everything I have. Use the item number if you want one.",
+    "responseDone": "",
+    "voiceStartVariants": {
+      "en:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\F1\\show-me-start.wav",
+      "en:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\M2\\show-me-start.wav",
+      "ar:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\F1\\show-me-start.wav",
+      "ar:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\M2\\show-me-start.wav"
+    }
+  },
+  {
+    "id": "builtin-run-away",
+    "triggerPhrases": [
+      "run away"
+    ],
+    "actionType": "runAway",
+    "actionParams": {},
+    "responseStart": "Running away from danger.",
+    "responseDone": "",
+    "voiceStartVariants": {
+      "en:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\F1\\run-away-start.wav",
+      "en:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\M2\\run-away-start.wav",
+      "ar:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\F1\\run-away-start.wav",
+      "ar:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\M2\\run-away-start.wav"
+    }
+  },
+  {
+    "id": "builtin-sleep",
+    "triggerPhrases": [
+      "sleep"
+    ],
+    "actionType": "goToBed",
+    "actionParams": {},
+    "responseStart": "Looking for a bed.",
+    "responseDone": "",
+    "voiceStartVariants": {
+      "en:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\F1\\sleep-start.wav",
+      "en:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\M2\\sleep-start.wav",
+      "ar:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\F1\\sleep-start.wav",
+      "ar:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\M2\\sleep-start.wav"
+    }
+  },
+  {
+    "id": "builtin-find-village",
+    "triggerPhrases": [
+      "find village"
+    ],
+    "actionType": "findEntity",
+    "actionParams": {
+      "query": "village"
+    },
+    "responseStart": "I will search nearby.",
+    "responseDone": "",
+    "voiceStartVariants": {
+      "en:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\F1\\find-village-start.wav",
+      "en:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\M2\\find-village-start.wav",
+      "ar:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\F1\\find-village-start.wav",
+      "ar:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\M2\\find-village-start.wav"
+    }
+  },
+  {
+    "id": "builtin-find-dog",
+    "triggerPhrases": [
+      "find dog"
+    ],
+    "actionType": "findEntity",
+    "actionParams": {
+      "query": "dog"
+    },
+    "responseStart": "I will search nearby.",
+    "responseDone": "",
+    "voiceStartVariants": {
+      "en:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\F1\\find-dog-start.wav",
+      "en:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\M2\\find-dog-start.wav",
+      "ar:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\F1\\find-dog-start.wav",
+      "ar:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\M2\\find-dog-start.wav"
+    }
+  },
+  {
+    "id": "builtin-find-cat",
+    "triggerPhrases": [
+      "find cat"
+    ],
+    "actionType": "findEntity",
+    "actionParams": {
+      "query": "cat"
+    },
+    "responseStart": "I will search nearby.",
+    "responseDone": "",
+    "voiceStartVariants": {
+      "en:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\F1\\find-cat-start.wav",
+      "en:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\M2\\find-cat-start.wav",
+      "ar:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\F1\\find-cat-start.wav",
+      "ar:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\M2\\find-cat-start.wav"
+    }
+  },
+  {
+    "id": "builtin-find-horse",
+    "triggerPhrases": [
+      "find horse"
+    ],
+    "actionType": "findEntity",
+    "actionParams": {
+      "query": "horse"
+    },
+    "responseStart": "I will search nearby.",
+    "responseDone": "",
+    "voiceStartVariants": {
+      "en:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\F1\\find-horse-start.wav",
+      "en:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\M2\\find-horse-start.wav",
+      "ar:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\F1\\find-horse-start.wav",
+      "ar:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\M2\\find-horse-start.wav"
+    }
+  },
+  {
+    "id": "builtin-find-camel",
+    "triggerPhrases": [
+      "find camel"
+    ],
+    "actionType": "findEntity",
+    "actionParams": {
+      "query": "camel"
+    },
+    "responseStart": "I will search nearby.",
+    "responseDone": "",
+    "voiceStartVariants": {
+      "en:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\F1\\find-camel-start.wav",
+      "en:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\M2\\find-camel-start.wav",
+      "ar:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\F1\\find-camel-start.wav",
+      "ar:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\M2\\find-camel-start.wav"
+    }
+  },
+  {
+    "id": "builtin-save-house",
+    "triggerPhrases": [
+      "save house"
+    ],
+    "actionType": "saveLocation",
+    "actionParams": {
+      "name": "house"
+    },
+    "responseStart": "Saving this location.",
+    "responseDone": "",
+    "voiceStartVariants": {
+      "en:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\F1\\save-house-start.wav",
+      "en:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\M2\\save-house-start.wav",
+      "ar:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\F1\\save-house-start.wav",
+      "ar:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\M2\\save-house-start.wav"
+    }
+  },
+  {
+    "id": "builtin-save-me",
+    "triggerPhrases": [
+      "save me"
+    ],
+    "actionType": "saveLocation",
+    "actionParams": {
+      "name": "me"
+    },
+    "responseStart": "Saving this location.",
+    "responseDone": "",
+    "voiceStartVariants": {
+      "en:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\F1\\save-me-start.wav",
+      "en:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\M2\\save-me-start.wav",
+      "ar:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\F1\\save-me-start.wav",
+      "ar:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\M2\\save-me-start.wav"
+    }
+  },
+  {
+    "id": "builtin-how-craft-sword",
+    "triggerPhrases": [
+      "how do I craft a sword"
+    ],
+    "actionType": "helpGuide",
+    "actionParams": {
+      "itemName": "sword"
+    },
+    "responseStart": "I will guide you step by step.",
+    "responseDone": "",
+    "voiceStartVariants": {
+      "en:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\F1\\how-craft-sword-start.wav",
+      "en:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\M2\\how-craft-sword-start.wav",
+      "ar:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\F1\\how-craft-sword-start.wav",
+      "ar:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\M2\\how-craft-sword-start.wav"
+    }
+  },
+  {
+    "id": "builtin-follow-me-help",
+    "triggerPhrases": [
+      "follow me and help me"
+    ],
+    "actionType": "followGuard",
+    "actionParams": {
+      "distance": 3
+    },
+    "responseStart": "I will follow you and kill any monster that shows up.",
+    "responseDone": "",
+    "voiceStartVariants": {
+      "en:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\F1\\follow-me-help-start.wav",
+      "en:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\M2\\follow-me-help-start.wav",
+      "ar:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\F1\\follow-me-help-start.wav",
+      "ar:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\M2\\follow-me-help-start.wav"
+    }
+  },
+  {
+    "id": "builtin-stop-here",
+    "triggerPhrases": [
+      "stop here"
+    ],
+    "actionType": "stay",
+    "actionParams": {},
+    "responseStart": "Stopping right here.",
+    "responseDone": "",
+    "voiceStartVariants": {
+      "en:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\F1\\stop-here-start.wav",
+      "en:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\M2\\stop-here-start.wav",
+      "ar:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\F1\\stop-here-start.wav",
+      "ar:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\M2\\stop-here-start.wav"
+    }
+  },
+  {
+    "id": "builtin-stop",
+    "triggerPhrases": [
+      "stop"
+    ],
+    "actionType": "stop",
+    "actionParams": {},
+    "responseStart": "Stopping now.",
+    "responseDone": "",
+    "voiceStartVariants": {
+      "en:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\F1\\stop-start.wav",
+      "en:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\M2\\stop-start.wav",
+      "ar:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\F1\\stop-start.wav",
+      "ar:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\M2\\stop-start.wav"
+    }
+  },
+  {
+    "id": "builtin-come-here",
+    "triggerPhrases": [
+      "come here"
+    ],
+    "actionType": "goToPlayer",
+    "actionParams": {
+      "distance": 2
+    },
+    "responseStart": "On my way to you.",
+    "responseDone": "",
+    "voiceStartVariants": {
+      "en:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\F1\\come-here-start.wav",
+      "en:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\M2\\come-here-start.wav",
+      "ar:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\F1\\come-here-start.wav",
+      "ar:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\M2\\come-here-start.wav"
+    }
+  },
+  {
+    "id": "builtin-give-everything",
+    "triggerPhrases": [
+      "give me everything"
+    ],
+    "actionType": "giveAll",
+    "actionParams": {},
+    "responseStart": "Handing over everything I have.",
+    "responseDone": "",
+    "voiceStartVariants": {
+      "en:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\F1\\give-everything-start.wav",
+      "en:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\M2\\give-everything-start.wav",
+      "ar:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\F1\\give-everything-start.wav",
+      "ar:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\M2\\give-everything-start.wav"
+    }
+  },
+  {
+    "id": "builtin-give-sword",
+    "triggerPhrases": [
+      "give me a sword"
+    ],
+    "actionType": "giveItem",
+    "actionParams": {
+      "itemName": "sword",
+      "count": 1
+    },
+    "responseStart": "Okay, giving you a sword.",
+    "responseDone": "",
+    "voiceStartVariants": {
+      "en:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\F1\\give-sword-start.wav",
+      "en:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\M2\\give-sword-start.wav",
+      "ar:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\F1\\give-sword-start.wav",
+      "ar:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\M2\\give-sword-start.wav"
+    }
+  },
+  {
+    "id": "builtin-give-armor",
+    "triggerPhrases": [
+      "give me armor"
+    ],
+    "actionType": "giveItem",
+    "actionParams": {
+      "itemName": "armor",
+      "count": 1
+    },
+    "responseStart": "Okay, giving you armor.",
+    "responseDone": "",
+    "voiceStartVariants": {
+      "en:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\F1\\give-armor-start.wav",
+      "en:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\M2\\give-armor-start.wav",
+      "ar:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\F1\\give-armor-start.wav",
+      "ar:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\M2\\give-armor-start.wav"
+    }
+  },
+  {
+    "id": "builtin-give-food",
+    "triggerPhrases": [
+      "give me food"
+    ],
+    "actionType": "giveItem",
+    "actionParams": {
+      "itemName": "food",
+      "count": 1
+    },
+    "responseStart": "Okay, giving you food.",
+    "responseDone": "",
+    "voiceStartVariants": {
+      "en:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\F1\\give-food-start.wav",
+      "en:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\M2\\give-food-start.wav",
+      "ar:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\F1\\give-food-start.wav",
+      "ar:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\M2\\give-food-start.wav"
+    }
+  },
+  {
+    "id": "builtin-give-boat",
+    "triggerPhrases": [
+      "give me a boat"
+    ],
+    "actionType": "giveItem",
+    "actionParams": {
+      "itemName": "oak_boat",
+      "count": 1
+    },
+    "responseStart": "Okay, giving you oak boat.",
+    "responseDone": "",
+    "voiceStartVariants": {
+      "en:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\F1\\give-boat-start.wav",
+      "en:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\M2\\give-boat-start.wav",
+      "ar:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\F1\\give-boat-start.wav",
+      "ar:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\M2\\give-boat-start.wav"
+    }
+  },
+  {
+    "id": "builtin-bring-stone",
+    "triggerPhrases": [
+      "bring me 16 stone"
+    ],
+    "actionType": "collectBlocks",
+    "actionParams": {
+      "blockType": "stone",
+      "count": 16
+    },
+    "responseStart": "Okay, I will get 16 stone.",
+    "responseDone": "",
+    "voiceStartVariants": {
+      "en:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\F1\\bring-stone-start.wav",
+      "en:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\M2\\bring-stone-start.wav",
+      "ar:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\F1\\bring-stone-start.wav",
+      "ar:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\M2\\bring-stone-start.wav"
+    }
+  },
+  {
+    "id": "builtin-search-diamond",
+    "triggerPhrases": [
+      "search for diamond"
+    ],
+    "actionType": "searchBlock",
+    "actionParams": {
+      "blockType": "diamond_ore"
+    },
+    "responseStart": "Searching for diamond ore.",
+    "responseDone": "",
+    "voiceStartVariants": {
+      "en:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\F1\\search-diamond-start.wav",
+      "en:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\M2\\search-diamond-start.wav",
+      "ar:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\F1\\search-diamond-start.wav",
+      "ar:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\M2\\search-diamond-start.wav"
+    }
+  },
+  {
+    "id": "builtin-search-gold",
+    "triggerPhrases": [
+      "search for gold"
+    ],
+    "actionType": "searchBlock",
+    "actionParams": {
+      "blockType": "gold_ore"
+    },
+    "responseStart": "Searching for gold ore.",
+    "responseDone": "",
+    "voiceStartVariants": {
+      "en:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\F1\\search-gold-start.wav",
+      "en:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\M2\\search-gold-start.wav",
+      "ar:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\F1\\search-gold-start.wav",
+      "ar:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\M2\\search-gold-start.wav"
+    }
+  },
+  {
+    "id": "builtin-create-furnace",
+    "triggerPhrases": [
+      "create a furnace"
+    ],
+    "actionType": "craft",
+    "actionParams": {
+      "itemName": "furnace",
+      "count": 1
+    },
+    "responseStart": "Okay, I will craft a furnace.",
+    "responseDone": "",
+    "voiceStartVariants": {
+      "en:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\F1\\create-furnace-start.wav",
+      "en:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\M2\\create-furnace-start.wav",
+      "ar:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\F1\\create-furnace-start.wav",
+      "ar:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\M2\\create-furnace-start.wav"
+    }
+  },
+  {
+    "id": "builtin-craft-table",
+    "triggerPhrases": [
+      "craft a crafting table"
+    ],
+    "actionType": "craft",
+    "actionParams": {
+      "itemName": "crafting_table",
+      "count": 1
+    },
+    "responseStart": "Okay, I will craft a crafting table.",
+    "responseDone": "",
+    "voiceStartVariants": {
+      "en:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\F1\\craft-table-start.wav",
+      "en:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\M2\\craft-table-start.wav",
+      "ar:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\F1\\craft-table-start.wav",
+      "ar:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\M2\\craft-table-start.wav"
+    }
+  },
+  {
+    "id": "builtin-how-craft-sword",
+    "triggerPhrases": [
+      "how do I craft a sword"
+    ],
+    "actionType": "helpGuide",
+    "actionParams": {
+      "itemName": "sword"
+    },
+    "responseStart": "I will guide you step by step.",
+    "responseDone": "",
+    "voiceStartVariants": {
+      "en:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\F1\\how-craft-sword-start.wav",
+      "en:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\M2\\how-craft-sword-start.wav",
+      "ar:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\F1\\how-craft-sword-start.wav",
+      "ar:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\M2\\how-craft-sword-start.wav"
+    }
+  },
+  {
+    "id": "builtin-go-fishing",
+    "triggerPhrases": [
+      "go fishing"
+    ],
+    "actionType": "fish",
+    "actionParams": {},
+    "responseStart": "I will go fishing nearby.",
+    "responseDone": "",
+    "voiceStartVariants": {
+      "en:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\F1\\go-fishing-start.wav",
+      "en:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\M2\\go-fishing-start.wav",
+      "ar:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\F1\\go-fishing-start.wav",
+      "ar:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\M2\\go-fishing-start.wav"
+    }
+  },
+  {
+    "id": "builtin-find-treasure",
+    "triggerPhrases": [
+      "find treasure"
+    ],
+    "actionType": "findEntity",
+    "actionParams": {
+      "query": "treasure"
+    },
+    "responseStart": "I will search for treasure chests nearby.",
+    "responseDone": "",
+    "voiceStartVariants": {
+      "en:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\F1\\find-treasure-start.wav",
+      "en:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\M2\\find-treasure-start.wav",
+      "ar:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\F1\\find-treasure-start.wav",
+      "ar:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\M2\\find-treasure-start.wav"
+    }
+  },
+  {
+    "id": "builtin-find-chest",
+    "triggerPhrases": [
+      "find chest"
+    ],
+    "actionType": "findEntity",
+    "actionParams": {
+      "query": "treasure"
+    },
+    "responseStart": "I will search for treasure chests nearby.",
+    "responseDone": "",
+    "voiceStartVariants": {
+      "en:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\F1\\find-chest-start.wav",
+      "en:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\M2\\find-chest-start.wav",
+      "ar:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\F1\\find-chest-start.wav",
+      "ar:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\M2\\find-chest-start.wav"
+    }
+  },
+  {
+    "id": "builtin-ride-with-me",
+    "triggerPhrases": [
+      "ride with me"
+    ],
+    "actionType": "followPlayer",
+    "actionParams": {
+      "distance": 3
+    },
+    "responseStart": "Okay, following you.",
+    "responseDone": "",
+    "voiceStartVariants": {
+      "en:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\F1\\ride-with-me-start.wav",
+      "en:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\M2\\ride-with-me-start.wav",
+      "ar:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\F1\\ride-with-me-start.wav",
+      "ar:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\M2\\ride-with-me-start.wav"
+    }
+  },
+  {
+    "id": "builtin-kill-this",
+    "triggerPhrases": [
+      "kill this"
+    ],
+    "actionType": "attack",
+    "actionParams": {
+      "entityType": "hostile"
+    },
+    "responseStart": "I will attack the nearest target.",
+    "responseDone": "",
+    "voiceStartVariants": {
+      "en:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\F1\\kill-this-start.wav",
+      "en:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\M2\\kill-this-start.wav",
+      "ar:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\F1\\kill-this-start.wav",
+      "ar:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\M2\\kill-this-start.wav"
+    }
+  },
+  {
+    "id": "builtin-tame-dog",
+    "triggerPhrases": [
+      "tame dog"
+    ],
+    "actionType": "tame",
+    "actionParams": {
+      "animal": "wolf"
+    },
+    "responseStart": "I will try to tame that animal.",
+    "responseDone": "",
+    "voiceStartVariants": {
+      "en:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\F1\\tame-dog-start.wav",
+      "en:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\M2\\tame-dog-start.wav",
+      "ar:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\F1\\tame-dog-start.wav",
+      "ar:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\M2\\tame-dog-start.wav"
+    }
+  },
+  {
+    "id": "builtin-tame-cat",
+    "triggerPhrases": [
+      "tame cat"
+    ],
+    "actionType": "tame",
+    "actionParams": {
+      "animal": "cat"
+    },
+    "responseStart": "I will try to tame that animal.",
+    "responseDone": "",
+    "voiceStartVariants": {
+      "en:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\F1\\tame-cat-start.wav",
+      "en:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\M2\\tame-cat-start.wav",
+      "ar:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\F1\\tame-cat-start.wav",
+      "ar:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\M2\\tame-cat-start.wav"
+    }
+  },
+  {
+    "id": "builtin-farm-crops",
+    "triggerPhrases": [
+      "farm crops"
+    ],
+    "actionType": "farm",
+    "actionParams": {},
+    "responseStart": "I will work on the nearby crops.",
+    "responseDone": "",
+    "voiceStartVariants": {
+      "en:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\F1\\farm-crops-start.wav",
+      "en:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\M2\\farm-crops-start.wav",
+      "ar:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\F1\\farm-crops-start.wav",
+      "ar:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\M2\\farm-crops-start.wav"
+    }
+  },
+  {
+    "id": "builtin-plant-seeds",
+    "triggerPhrases": [
+      "plant seeds"
+    ],
+    "actionType": "farm",
+    "actionParams": {},
+    "responseStart": "I will work on the nearby crops.",
+    "responseDone": "",
+    "voiceStartVariants": {
+      "en:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\F1\\plant-seeds-start.wav",
+      "en:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\M2\\plant-seeds-start.wav",
+      "ar:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\F1\\plant-seeds-start.wav",
+      "ar:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\M2\\plant-seeds-start.wav"
+    }
+  },
+  {
+    "id": "builtin-harvest-crops",
+    "triggerPhrases": [
+      "harvest crops"
+    ],
+    "actionType": "farm",
+    "actionParams": {},
+    "responseStart": "I will work on the nearby crops.",
+    "responseDone": "",
+    "voiceStartVariants": {
+      "en:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\F1\\harvest-crops-start.wav",
+      "en:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\M2\\harvest-crops-start.wav",
+      "ar:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\F1\\harvest-crops-start.wav",
+      "ar:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\M2\\harvest-crops-start.wav"
+    }
+  },
+  {
+    "id": "builtin-bring-sand",
+    "triggerPhrases": [
+      "bring me sand"
+    ],
+    "actionType": "collectBlocks",
+    "actionParams": {
+      "blockType": "sand",
+      "count": 8
+    },
+    "responseStart": "Okay, I will get 8 sand.",
+    "responseDone": "",
+    "voiceStartVariants": {
+      "en:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\F1\\bring-sand-start.wav",
+      "en:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\M2\\bring-sand-start.wav",
+      "ar:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\F1\\bring-sand-start.wav",
+      "ar:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\M2\\bring-sand-start.wav"
+    }
+  },
+  {
+    "id": "builtin-bring-cobblestone",
+    "triggerPhrases": [
+      "bring me cobblestone"
+    ],
+    "actionType": "collectBlocks",
+    "actionParams": {
+      "blockType": "cobblestone",
+      "count": 8
+    },
+    "responseStart": "Okay, I will get 8 cobblestone.",
+    "responseDone": "",
+    "voiceStartVariants": {
+      "en:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\F1\\bring-cobblestone-start.wav",
+      "en:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\M2\\bring-cobblestone-start.wav",
+      "ar:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\F1\\bring-cobblestone-start.wav",
+      "ar:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\M2\\bring-cobblestone-start.wav"
+    }
+  },
+  {
+    "id": "builtin-bring-dirt",
+    "triggerPhrases": [
+      "bring me dirt"
+    ],
+    "actionType": "collectBlocks",
+    "actionParams": {
+      "blockType": "dirt",
+      "count": 8
+    },
+    "responseStart": "Okay, I will get 8 dirt.",
+    "responseDone": "",
+    "voiceStartVariants": {
+      "en:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\F1\\bring-dirt-start.wav",
+      "en:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\M2\\bring-dirt-start.wav",
+      "ar:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\F1\\bring-dirt-start.wav",
+      "ar:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\M2\\bring-dirt-start.wav"
+    }
+  },
+  {
+    "id": "builtin-bring-gravel",
+    "triggerPhrases": [
+      "bring me gravel"
+    ],
+    "actionType": "collectBlocks",
+    "actionParams": {
+      "blockType": "gravel",
+      "count": 8
+    },
+    "responseStart": "Okay, I will get 8 gravel.",
+    "responseDone": "",
+    "voiceStartVariants": {
+      "en:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\F1\\bring-gravel-start.wav",
+      "en:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\M2\\bring-gravel-start.wav",
+      "ar:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\F1\\bring-gravel-start.wav",
+      "ar:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\M2\\bring-gravel-start.wav"
+    }
+  },
+  {
+    "id": "builtin-search-iron",
+    "triggerPhrases": [
+      "search for iron"
+    ],
+    "actionType": "searchBlock",
+    "actionParams": {
+      "blockType": "iron_ore"
+    },
+    "responseStart": "Searching for iron ore.",
+    "responseDone": "",
+    "voiceStartVariants": {
+      "en:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\F1\\search-iron-start.wav",
+      "en:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\M2\\search-iron-start.wav",
+      "ar:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\F1\\search-iron-start.wav",
+      "ar:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\M2\\search-iron-start.wav"
+    }
+  },
+  {
+    "id": "builtin-search-coal",
+    "triggerPhrases": [
+      "search for coal"
+    ],
+    "actionType": "searchBlock",
+    "actionParams": {
+      "blockType": "coal_ore"
+    },
+    "responseStart": "Searching for coal ore.",
+    "responseDone": "",
+    "voiceStartVariants": {
+      "en:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\F1\\search-coal-start.wav",
+      "en:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\M2\\search-coal-start.wav",
+      "ar:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\F1\\search-coal-start.wav",
+      "ar:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\M2\\search-coal-start.wav"
+    }
+  },
+  {
+    "id": "builtin-craft-sword",
+    "triggerPhrases": [
+      "craft a sword"
+    ],
+    "actionType": "craft",
+    "actionParams": {
+      "itemName": "sword",
+      "count": 1
+    },
+    "responseStart": "Okay, I will craft a a sword.",
+    "responseDone": "",
+    "voiceStartVariants": {
+      "en:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\F1\\craft-sword-start.wav",
+      "en:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\M2\\craft-sword-start.wav",
+      "ar:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\F1\\craft-sword-start.wav",
+      "ar:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\M2\\craft-sword-start.wav"
+    }
+  },
+  {
+    "id": "builtin-craft-pickaxe",
+    "triggerPhrases": [
+      "craft a pickaxe"
+    ],
+    "actionType": "craft",
+    "actionParams": {
+      "itemName": "pickaxe",
+      "count": 1
+    },
+    "responseStart": "Okay, I will craft a pickaxe.",
+    "responseDone": "",
+    "voiceStartVariants": {
+      "en:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\F1\\craft-pickaxe-start.wav",
+      "en:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\M2\\craft-pickaxe-start.wav",
+      "ar:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\F1\\craft-pickaxe-start.wav",
+      "ar:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\M2\\craft-pickaxe-start.wav"
+    }
+  },
+  {
+    "id": "builtin-craft-axe",
+    "triggerPhrases": [
+      "craft an axe"
+    ],
+    "actionType": "craft",
+    "actionParams": {
+      "itemName": "axe",
+      "count": 1
+    },
+    "responseStart": "Okay, I will craft a axe.",
+    "responseDone": "",
+    "voiceStartVariants": {
+      "en:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\F1\\craft-axe-start.wav",
+      "en:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\M2\\craft-axe-start.wav",
+      "ar:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\F1\\craft-axe-start.wav",
+      "ar:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\M2\\craft-axe-start.wav"
+    }
+  },
+  {
+    "id": "builtin-craft-shovel",
+    "triggerPhrases": [
+      "craft a shovel"
+    ],
+    "actionType": "craft",
+    "actionParams": {
+      "itemName": "shovel",
+      "count": 1
+    },
+    "responseStart": "Okay, I will craft a shovel.",
+    "responseDone": "",
+    "voiceStartVariants": {
+      "en:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\F1\\craft-shovel-start.wav",
+      "en:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\M2\\craft-shovel-start.wav",
+      "ar:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\F1\\craft-shovel-start.wav",
+      "ar:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\M2\\craft-shovel-start.wav"
+    }
+  },
+  {
+    "id": "builtin-craft-shield",
+    "triggerPhrases": [
+      "craft a shield"
+    ],
+    "actionType": "craft",
+    "actionParams": {
+      "itemName": "shield",
+      "count": 1
+    },
+    "responseStart": "Okay, I will craft a shield.",
+    "responseDone": "",
+    "voiceStartVariants": {
+      "en:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\F1\\craft-shield-start.wav",
+      "en:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\M2\\craft-shield-start.wav",
+      "ar:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\F1\\craft-shield-start.wav",
+      "ar:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\M2\\craft-shield-start.wav"
+    }
+  },
+  {
+    "id": "builtin-craft-torches",
+    "triggerPhrases": [
+      "craft torches"
+    ],
+    "actionType": "craft",
+    "actionParams": {
+      "itemName": "torch",
+      "count": 1
+    },
+    "responseStart": "Okay, I will craft a torch.",
+    "responseDone": "",
+    "voiceStartVariants": {
+      "en:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\F1\\craft-torches-start.wav",
+      "en:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\M2\\craft-torches-start.wav",
+      "ar:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\F1\\craft-torches-start.wav",
+      "ar:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\M2\\craft-torches-start.wav"
+    }
+  },
+  {
+    "id": "builtin-find-bed",
+    "triggerPhrases": [
+      "find a bed"
+    ],
+    "actionType": "findEntity",
+    "actionParams": {
+      "query": "bed"
+    },
+    "responseStart": "I will search nearby.",
+    "responseDone": "",
+    "voiceStartVariants": {
+      "en:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\F1\\find-bed-start.wav",
+      "en:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\M2\\find-bed-start.wav",
+      "ar:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\F1\\find-bed-start.wav",
+      "ar:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\M2\\find-bed-start.wav"
+    }
+  },
+  {
+    "id": "builtin-eat-food",
+    "triggerPhrases": [
+      "eat food"
+    ],
+    "actionType": "eat",
+    "actionParams": {},
+    "responseStart": "Eating something from my inventory.",
+    "responseDone": "",
+    "voiceStartVariants": {
+      "en:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\F1\\eat-food-start.wav",
+      "en:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\M2\\eat-food-start.wav",
+      "ar:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\F1\\eat-food-start.wav",
+      "ar:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\M2\\eat-food-start.wav"
+    }
+  },
+  {
+    "id": "builtin-equip-sword",
+    "triggerPhrases": [
+      "equip sword"
+    ],
+    "actionType": "equip",
+    "actionParams": {
+      "itemName": "sword"
+    },
+    "responseStart": "I will equip that item.",
+    "responseDone": "",
+    "voiceStartVariants": {
+      "en:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\F1\\equip-sword-start.wav",
+      "en:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\en\\M2\\equip-sword-start.wav",
+      "ar:F1": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\F1\\equip-sword-start.wav",
+      "ar:M2": "C:\\Users\\Yassir-Houm\\Desktop\\mice_frinedo\\data\\voices\\builtin\\ar\\M2\\equip-sword-start.wav"
+    }
+  }
+]

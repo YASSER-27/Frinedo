@@ -1,0 +1,25 @@
+{
+  "nodes": [
+    {
+      "id": "README.ar.md",
+      "name": "README.ar.md",
+      "x": 60,
+      "y": 60,
+      "preview": "Frinedo"
+    },
+    {
+      "id": "README.md",
+      "name": "README.md",
+      "x": 320,
+      "y": 60,
+      "preview": "Frinedo"
+    }
+  ],
+  "conns": [
+    {
+      "from": "README.ar.md",
+      "to": "README.md"
+    }
+  ],
+  "removed": []
+}

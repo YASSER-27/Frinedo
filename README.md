@@ -75,10 +75,13 @@ TTS model files are development-only and are intentionally excluded from the Set
 1. Open a single-player world in Minecraft Java Edition.
 2. Choose **Open to LAN**.
 3. Enable cheats if you want clickable commands and command-related actions.
-4. Enter the LAN port in Frinedo Settings.
-5. Enter the host, usually `127.0.0.1` for the local computer.
-6. Set the primary bot name and optionally enable Bot 2, Bot 3, or Bot 4.
-7. Save Settings and connect.
+4. Note the LAN port shown by Minecraft.
+5. Enter that exact same LAN port in the `Port` field in Frinedo Settings. The ports must match.
+6. Enter the host, usually `127.0.0.1` for the local computer.
+7. Set the primary bot name and optionally enable Bot 2, Bot 3, or Bot 4.
+8. Save Settings and connect.
+
+Minecraft must be running and the world must already be opened with **Open to LAN**. Frinedo cannot connect before the LAN world is active, and it will not connect if the Port in Settings is different from Minecraft's LAN Port.
 
 Use `menu` in chat to open page one. Use `menu 2`, `menu 3`, or another page number for later commands. Type a page-local number to run a command. To target another bot, use for example:
 

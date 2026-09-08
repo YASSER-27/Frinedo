@@ -19,7 +19,7 @@
   "homepage": "https://github.com/YASSER-27",
   "repository": {
     "type": "git",
-    "url": "https://github.com/YASSER-27"
+  "url": "git+https://github.com/YASSER-27/Frinedo.git"
   },
   "license": "MIT",
   "dependencies": {

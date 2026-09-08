@@ -13,13 +13,16 @@ Frinedo is an offline desktop Minecraft companion project built with Electron, R
 
 Version: **1.1.4**
 
-Author: **YASSER-27**
-
-[GitHub:](https://github.com/YASSER-27)
-
 ## Project Idea
 
 Frinedo is designed for offline Minecraft play with bot friends. You can play normally while one or more companion bots join your LAN world, respond to commands, help with early-game tasks, and make the world feel more alive without requiring an online AI service.
+>Minecraft
+<img width="1110" height="562" alt="image" src="https://github.com/user-attachments/assets/fb508737-f25b-4914-bee2-c4f4b0225aee" />
+
+>Frinedo App
+<img width="1110" height="680" alt="image" src="https://github.com/user-attachments/assets/b1896524-a8ce-4ba3-843c-88d88cfbf7de" />
+
+
 
 ## Features
 
@@ -136,3 +139,7 @@ Only Start voice files are used for built-in commands. Done messages remain text
 ## License
 
 MIT
+
+Author: **YASSER-27**
+
+[GitHub:](https://github.com/YASSER-27)

@@ -14,9 +14,8 @@
 [Readme_AR](README.ar.md)
 
 Frinedo is an offline desktop Minecraft companion project built with Electron, React, TypeScript, Mineflayer, and optional local Supertonic TTS. It is made for enjoying Minecraft with bot friends that can follow you, protect you, gather resources, craft tools, explore the world, and help you learn the game.
-Version: **1.1.8**
 
-Version: **1.1.4**
+Version: **1.1.8**
 
 <img width="900" height="600" alt="YassirSnap_1791584665588" src="https://github.com/user-attachments/assets/351122b7-ae80-48ce-9e00-7af01076844b" />
 

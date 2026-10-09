@@ -5,9 +5,10 @@ import { getApi } from '../api';
 interface Props {
   status: BotConnectionStatus;
   onStatusChange: (status: BotConnectionStatus) => void;
+  onConnect: (settings: AppSettings) => Promise<BotConnectionStatus>;
 }
 
-export default function SettingsPanel({ status, onStatusChange }: Props) {
+export default function SettingsPanel({ status, onStatusChange, onConnect }: Props) {
   const [activeSection, setActiveSection] = useState<'connection' | 'bots' | 'voice'>('connection');
   const [settings, setSettings] = useState<AppSettings>({
     host: '127.0.0.1',
@@ -15,27 +16,46 @@ export default function SettingsPanel({ status, onStatusChange }: Props) {
     username: 'SteveBot',
     version: '',
     muted: false,
-      voiceHelpEnabled: false,
-      voiceHelpVoice: 'M2',
-      voiceHelpLanguage: 'en',
-      botPlayers: ['SteveBot'],
+    voiceHelpEnabled: false,
+    voiceHelpVoice: 'M2',
+    voiceHelpLanguage: 'en',
+    botPlayers: ['', '', '', ''],
   });
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState('');
+  const [hasLoaded, setHasLoaded] = useState(false);
 
   useEffect(() => {
-    void getApi().settings.get().then(setSettings);
+    void getApi().settings.get().then((loaded) => {
+      setSettings(loaded);
+      setHasLoaded(true);
+    });
   }, []);
+
+  useEffect(() => {
+    if (!hasLoaded) return;
+
+    const timeout = setTimeout(() => {
+      void getApi().settings.save(settings);
+    }, 150);
+
+    return () => clearTimeout(timeout);
+  }, [settings, hasLoaded]);
 
   const update = (patch: Partial<AppSettings>) => {
     setSettings((prev) => ({ ...prev, ...patch }));
   };
 
-  const selectedBots = settings.botPlayers ?? ['SteveBot'];
+  const selectedBots = settings.botPlayers ?? ['', '', '', ''];
   const isBotEnabled = (index: number) => Boolean(selectedBots[index]?.trim());
   const toggleBot = (index: number, enabled: boolean) => {
     const names = [...selectedBots];
-    names[index] = enabled ? (names[index]?.trim() || (index === 0 ? 'SteveBot' : `Bot${index + 1}`)) : '';
+    if (enabled) {
+      const base = index === 0 ? 'Bot1' : `Bot${index + 1}`;
+      names[index] = names[index]?.trim() || base;
+    } else {
+      names[index] = '';
+    }
     update({ botPlayers: names });
   };
 
@@ -46,7 +66,7 @@ export default function SettingsPanel({ status, onStatusChange }: Props) {
     setError('');
     try {
       await save();
-      onStatusChange(await getApi().bot.connect(settings));
+      onStatusChange(await onConnect(settings));
     } catch (err) {
       const msg = err instanceof Error ? err.message : String(err);
       setError(msg);
@@ -134,7 +154,7 @@ export default function SettingsPanel({ status, onStatusChange }: Props) {
             <label className="bot-check"><input type="checkbox" checked={isBotEnabled(index)} onChange={(e) => toggleBot(index, e.target.checked)} /> <img src={`./Bot_${index + 1}.png`} alt="" draggable={false} /> <span>Bot {index + 1}</span></label>
             {isBotEnabled(index) && <input
               value={selectedBots[index] ?? ''}
-              placeholder={index === 0 ? 'SteveBot' : `Bot${index + 1}`}
+              placeholder={`Bot${index + 1}`}
               onChange={(e) => {
                 const names = [...selectedBots];
                 names[index] = e.target.value;
@@ -148,7 +168,6 @@ export default function SettingsPanel({ status, onStatusChange }: Props) {
       {error && <div className="voice-bad">{error}</div>}
 
       <div className="actions settings-actions">
-        <button className="btn" onClick={() => void save()}>Save</button>
         {status === 'connected' ? (
           <button className="btn danger" onClick={() => void disconnect()} disabled={busy}>
             Disconnect

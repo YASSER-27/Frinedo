@@ -9,20 +9,20 @@ directories:
   buildResources: resources
 files:
   - dist/**/*
+  - src/public/**/*
+  - src/store/**/*
   - package.json
 extraResources:
   - from: data
     to: data
     filter:
       - "**/*"
-  - from: src/public
-    to: public
-    filter:
-      - "**/*"
 win:
   target:
     - nsis
   icon: resources/icon.ico
+nsis:
+  installerSidebar: src/public/setup.png
 mac:
   target:
     - dmg

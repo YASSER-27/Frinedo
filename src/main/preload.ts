@@ -3,6 +3,8 @@ import { contextBridge, ipcRenderer } from 'electron';
 const C = {
   BOT_CONNECT: 'bot:connect',
   BOT_DISCONNECT: 'bot:disconnect',
+  BOT_RUN_COMMAND: 'bot:run-command',
+  BOT_SET_SKIN: 'bot:set-skin',
   BOT_STATUS: 'bot:status',
   BOT_STATUS_CHANGED: 'bot:status-changed',
   BOT_TEST_MATCH: 'bot:test-match',
@@ -37,6 +39,8 @@ contextBridge.exposeInMainWorld('electronAPI', {
   bot: {
     connect: (settings?: unknown) => ipcRenderer.invoke(C.BOT_CONNECT, settings),
     disconnect: () => ipcRenderer.invoke(C.BOT_DISCONNECT),
+    runCommand: (message: string, username?: string) => ipcRenderer.invoke(C.BOT_RUN_COMMAND, { message, username }),
+    setSkin: (skinId: string, target: 'bot1' | 'bot2' | 'bot3' | 'bot4' | 'user') => ipcRenderer.invoke(C.BOT_SET_SKIN, { skinId, target }),
     getStatus: () => ipcRenderer.invoke(C.BOT_STATUS),
     testMatch: (message: string) => ipcRenderer.invoke(C.BOT_TEST_MATCH, message),
     onStatusChanged: (callback: (data: unknown) => void) => {

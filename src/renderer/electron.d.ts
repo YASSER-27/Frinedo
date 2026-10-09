@@ -16,6 +16,8 @@ declare global {
       bot: {
         connect: (settings?: Partial<AppSettings>) => Promise<BotConnectionStatus>;
         disconnect: () => Promise<BotConnectionStatus>;
+        runCommand: (message: string, username?: string) => Promise<boolean>;
+        setSkin: (skinId: string, target: 'bot1' | 'bot2' | 'bot3' | 'bot4' | 'user') => Promise<{ success: boolean; error?: string }>;
         getStatus: () => Promise<{ status: BotConnectionStatus; history: ChatMessage[] }>;
         testMatch: (message: string) => Promise<TestMatchResult>;
         onStatusChanged: (callback: (data: { status: BotConnectionStatus; error?: string }) => void) => () => void;

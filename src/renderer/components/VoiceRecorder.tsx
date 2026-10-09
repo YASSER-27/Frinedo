@@ -11,12 +11,18 @@ export default function VoiceRecorder({ responseText, onVoiceGenerated }: Props)
   const [recording, setRecording] = useState(false);
   const mediaRecorderRef = useRef<MediaRecorder | null>(null);
   const chunksRef = useRef<Blob[]>([]);
-  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const audioPoolRef = useRef(new Map<string, HTMLAudioElement>());
 
   useEffect(() => {
     return () => {
-      if (audioRef.current) {
-        audioRef.current.pause();
+      for (const [key, audio] of audioPoolRef.current.entries()) {
+        audio.pause();
+        audio.onended = null;
+        audio.onerror = null;
+        audio.src = '';
+        audio.removeAttribute('src');
+        audio.load();
+        audioPoolRef.current.delete(key);
       }
     };
   }, []);
@@ -50,11 +56,42 @@ export default function VoiceRecorder({ responseText, onVoiceGenerated }: Props)
   };
 
   const playAudio = (src: string) => {
-    if (audioRef.current) {
-      audioRef.current.pause();
+    const resolved = /^data:|^blob:|^file:|^https?:\/\//i.test(src) ? src : `file://${src.replace(/\\/g, '/')}`;
+    const existing = audioPoolRef.current.get(resolved);
+    if (existing) {
+      existing.currentTime = 0;
+      void existing.play().catch(() => {
+        // file:// may be blocked in dev — user can preview after save
+      });
+      return;
     }
-    const audio = new Audio(`file://${src.replace(/\\/g, '/')}`);
-    audioRef.current = audio;
+
+    if (audioPoolRef.current.size >= 3) {
+      const oldestKey = audioPoolRef.current.keys().next().value as string | undefined;
+      if (oldestKey) {
+        const oldest = audioPoolRef.current.get(oldestKey);
+        oldest?.pause();
+        oldest?.removeAttribute('src');
+        oldest?.load();
+        audioPoolRef.current.delete(oldestKey);
+      }
+    }
+
+    const audio = new Audio();
+    audio.onended = () => {
+      audioPoolRef.current.delete(resolved);
+      audio.src = '';
+      audio.removeAttribute('src');
+      audio.load();
+    };
+    audio.onerror = () => {
+      audioPoolRef.current.delete(resolved);
+      audio.src = '';
+      audio.removeAttribute('src');
+      audio.load();
+    };
+    audio.src = resolved;
+    audioPoolRef.current.set(resolved, audio);
     void audio.play().catch(() => {
       // file:// may be blocked in dev — user can preview after save
     });
@@ -120,7 +157,8 @@ export default function VoiceRecorder({ responseText, onVoiceGenerated }: Props)
       </div>
       {generating && (
         <div className="voice-loading" role="status">
-          <span />Generating voice...
+          <div className="loader-bar" />
+          <span>Generating voice...</span>
           <button className="btn loading-cancel" onClick={() => void cancelGeneration()}>Cancel</button>
         </div>
       )}

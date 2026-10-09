@@ -13,13 +13,15 @@ const stub = {
       voiceHelpEnabled: false,
       voiceHelpVoice: 'M2',
       voiceHelpLanguage: 'en',
-      botPlayers: ['SteveBot'],
+      botPlayers: ['', '', '', ''],
     }),
     save: async (s: AppSettings) => s,
   },
   bot: {
     connect: async (): Promise<BotConnectionStatus> => 'disconnected',
     disconnect: async (): Promise<BotConnectionStatus> => 'disconnected',
+    runCommand: async () => true,
+    setSkin: async () => ({ success: false, error: 'Open the Electron app window, not the browser.' }),
     getStatus: async () => ({ status: 'disconnected' as BotConnectionStatus, history: [] as ChatMessage[] }),
     testMatch: async (): Promise<TestMatchResult> => ({ matched: false }),
     onStatusChanged: () => noop,
@@ -43,7 +45,14 @@ const stub = {
     onPlay: () => noop,
   },
   window: {
+    minimize: async () => undefined,
     close: async () => undefined,
+  },
+  updates: {
+    check: async () => ({ available: false }),
+    download: async () => ({ success: false, error: 'Open the Electron app window, not the browser.' }),
+    install: async () => undefined,
+    onStatus: () => noop,
   },
 };
 

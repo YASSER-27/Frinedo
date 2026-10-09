@@ -1,7 +1,7 @@
 {
   "name": "frinedo",
-  "version": "0.1.5",
-  "description": "Frinedo Minecraft bot controller with Electron + TypeScript",
+  "version": "0.1.8",
+  "description": "Frinedo Minecraft bot",
   "main": "dist/main/main.js",
   "scripts": {
     "dev": "concurrently -k \"npm run dev:main\" \"npm run dev:renderer\" \"npm run dev:electron\"",
@@ -29,7 +29,8 @@
     "mineflayer-collectblock": "^1.4.1",
     "mineflayer-pathfinder": "^2.4.5",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "skinview3d": "^3.4.2"
   },
   "devDependencies": {
     "@types/react": "^18.3.12",

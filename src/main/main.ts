@@ -46,6 +46,7 @@ function setupUpdates(): void {
 
 function resolveIcon(): string {
   const candidates = [
+    path.join(app.getAppPath(), 'src', 'public', 'icon.png'),
     path.join(process.cwd(), 'src', 'public', 'icon.png'),
     path.join(process.cwd(), 'resources', 'icon.ico'),
     path.join(__dirname, '../renderer/icon.png'),
@@ -59,6 +60,7 @@ function resolveIcon(): string {
 
 function resolveTrayIcon(): string {
   const candidates = [
+    path.join(app.getAppPath(), 'src', 'public', 'small_icon.png'),
     path.join(process.cwd(), 'src', 'public', 'small_icon.png'),
     path.join(process.resourcesPath ?? '', 'public', 'small_icon.png'),
     path.join(__dirname, '../renderer/small_icon.png'),
@@ -96,6 +98,7 @@ function createWindow(): void {
       contextIsolation: true,
       nodeIntegration: false,
       sandbox: false,
+      autoplayPolicy: 'no-user-gesture-required',
     },
     title: 'Frinedo',
   });

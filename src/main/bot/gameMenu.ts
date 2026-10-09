@@ -1,6 +1,5 @@
 import { Bot } from 'mineflayer';
 import { BotCommand } from '../../shared/types';
-import { EXAMPLE_TRIGGERS, parseChat } from '../../shared/parseCommand';
 
 export interface MenuEntry {
   index: number;
@@ -10,26 +9,19 @@ export interface MenuEntry {
 }
 
 export const MENU_PAGE_SIZE = 10;
+export const MENU_COMMAND_LIMIT = 90;
 const MENU_COLORS = ['aqua', 'green', 'light_purple', 'yellow'];
 
 export function buildMenuEntries(saved: BotCommand[]): MenuEntry[] {
   const entries: MenuEntry[] = [];
-  let index = 1;
-
-  for (const phrase of EXAMPLE_TRIGGERS) {
-    entries.push({ index, label: phrase, phrase });
-    index += 1;
-  }
-
-  for (const command of saved) {
+  for (const command of saved.slice(0, MENU_COMMAND_LIMIT)) {
     const phrase = command.triggerPhrases[0] ?? command.actionType;
     entries.push({
-      index,
+      index: entries.length + 1,
       label: phrase,
       phrase,
       command,
     });
-    index += 1;
   }
 
   return entries;
@@ -45,30 +37,72 @@ export async function sendInGameMenu(bot: Bot, username: string, entries: MenuEn
   const currentPage = Math.min(Math.max(1, page), pageCount);
   const pageEntries = entries.slice((currentPage - 1) * MENU_PAGE_SIZE, currentPage * MENU_PAGE_SIZE);
   const pageColor = MENU_COLORS[(currentPage - 1) % MENU_COLORS.length];
+
   const header = JSON.stringify({
-    text: `=== Bot Menu ${currentPage}/${pageCount} === type menu ${currentPage} or a number`,
+    text: `=== Bot Menu ${currentPage}/${pageCount} ===`,
     color: pageColor,
+    bold: true,
   });
   bot.chat(`/tellraw ${target} ${header}`);
   await delay(40);
 
+  bot.chat(`/tellraw ${target} ${JSON.stringify({
+    text: `Commands: ${entries.length} total • Page ${currentPage} of ${pageCount}`,
+    color: 'gray',
+  })}`);
+  await delay(40);
+
   for (const [index, entry] of pageEntries.entries()) {
-    const localIndex = index + 1;
     const line = JSON.stringify({
-      text: `[${localIndex}] ${entry.label.slice(0, 48)}`,
+      text: `[${index + 1}] ${entry.label.slice(0, 32)}`,
       color: pageColor,
       clickEvent: {
         action: 'run_command',
-        value: `/msg ${bot.username} #${localIndex}`,
+        value: `/msg ${bot.username} ${index + 1}`,
+      },
+      bold: true,
+    });
+    bot.chat(`/tellraw ${target} ${line}`);
+    await delay(35);
+  }
+
+  const navColor = 'gold';
+
+  if (currentPage > 1) {
+    const prevButton = JSON.stringify({
+      text: '[◀ Previous page]',
+      color: navColor,
+      clickEvent: {
+        action: 'run_command',
+        value: `/msg ${bot.username} menu ${currentPage - 1}`,
       },
       hoverEvent: {
         action: 'show_text',
-        value: entry.phrase,
+        value: `Show page ${currentPage - 1}`,
       },
     });
-    bot.chat(`/tellraw ${target} ${line}`);
-    await delay(40);
+    bot.chat(`/tellraw ${target} ${prevButton}`);
+    await delay(25);
   }
+
+  if (currentPage < pageCount) {
+    const nextButton = JSON.stringify({
+      text: '[Next page ▶]',
+      color: navColor,
+      clickEvent: {
+        action: 'run_command',
+        value: `/msg ${bot.username} menu ${currentPage + 1}`,
+      },
+      hoverEvent: {
+        action: 'show_text',
+        value: `Show page ${currentPage + 1}`,
+      },
+    });
+    bot.chat(`/tellraw ${target} ${nextButton}`);
+    await delay(25);
+  }
+
+  bot.chat(`/tellraw ${target} ${JSON.stringify({ text: 'Click a command or type menu <page>.', color: 'dark_gray' })}`);
 }
 
 export function pickMenuEntry(entries: MenuEntry[], message: string, page = 1): MenuEntry | null {

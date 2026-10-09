@@ -10,7 +10,13 @@ export type ActionType =
   | 'giveAll'
   | 'craft'
   | 'placeBlock'
+  | 'buildHouse'
+  | 'rideVehicle'
+  | 'exitVehicle'
   | 'attack'
+  | 'takeFrontItem'
+  | 'wakeUp'
+  | 'survivalControl'
   | 'goToBed'
   | 'eat'
   | 'jump'
@@ -19,6 +25,13 @@ export type ActionType =
   | 'runAway'
   | 'findEntity'
   | 'saveLocation'
+  | 'showLocation'
+  | 'here'
+  | 'sit'
+  | 'crouch'
+  | 'prone'
+  | 'jumpRepeated'
+  | 'dropHeld'
   | 'helpGuide'
   | 'fish'
   | 'tame'
@@ -57,6 +70,8 @@ export interface AppSettings extends ServerSettings {
   voiceHelpLanguage: 'en' | 'ar';
 }
 
+export type SkinTarget = 'bot1' | 'bot2' | 'bot3' | 'bot4' | 'user';
+
 export type BotConnectionStatus =
   | 'disconnected'
   | 'connecting'
@@ -82,6 +97,7 @@ export interface ParsedIntent {
 export const IPC_CHANNELS = {
   BOT_CONNECT: 'bot:connect',
   BOT_DISCONNECT: 'bot:disconnect',
+  BOT_RUN_COMMAND: 'bot:run-command',
   BOT_STATUS: 'bot:status',
   BOT_STATUS_CHANGED: 'bot:status-changed',
   BOT_TEST_MATCH: 'bot:test-match',

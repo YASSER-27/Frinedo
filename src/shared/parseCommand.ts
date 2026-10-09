@@ -12,6 +12,63 @@ function has(text: string, ...needles: string[]): boolean {
 
 const RULES: Rule[] = [
   {
+    test: (t) => /^(str|srt|stf|sct|stbe)$/.test(t.trim()),
+    build: (t) => {
+      const mode = t.trim() === 'stf' ? 'off' : t.trim() === 'stbe' ? 'begin' : 'continue';
+      const text = mode === 'off' ? 'I will stop automatic survival tasks.' : mode === 'begin' ? 'I will restart survival from the beginning.' : 'I will continue my survival tasks.';
+      return { actionType: 'survivalControl', actionParams: { mode }, label: 'Survival automation', startText: text, doneText: 'Survival mode updated.' };
+    },
+  },
+  {
+    test: (t) => /^(this|take this|take it|خذ هذا|خد هذا|هذا|التقط هذا)$/.test(t.trim()),
+    build: () => ({
+      actionType: 'takeFrontItem', actionParams: {}, label: 'Take the item in front',
+      startText: 'I will take what is in front of me.', doneText: 'I picked it up.',
+    }),
+  },
+  {
+    test: (t) => has(t, 'up', 'wake up', 'stay awake', 'لا تنم', 'لا تنام', 'استيقظ'),
+    build: () => ({
+      actionType: 'wakeUp', actionParams: {}, label: 'Stay awake',
+      startText: 'I will stay awake.', doneText: 'I am awake.',
+    }),
+  },
+  {
+    test: (t) => /^(go|go attack|attack|هاجم|اذهب هاجم|اهجم)$/.test(t.trim()),
+    build: () => ({
+      actionType: 'attack', actionParams: { entityType: 'hostile' }, label: 'Attack nearby monster',
+      startText: 'I am attacking the nearby monster.', doneText: 'The attack is over.',
+    }),
+  },
+  {
+    test: (t) => has(t, 'ip', 'where are you', 'location', 'coordinates', 'اين انت', 'أين أنت', 'موقعك'),
+    build: () => ({ actionType: 'showLocation', actionParams: {}, label: 'Show location', startText: 'I will tell you my location.', doneText: 'Location reported.' }),
+  },
+  {
+    test: (t) => has(t, 'crouch', 'sneak', 'انحن', 'انبطح'),
+    build: () => ({ actionType: 'crouch', actionParams: {}, label: 'Crouch', startText: 'I will crouch here.', doneText: 'I am crouching.' }),
+  },
+  {
+    test: (t) => has(t, 'prone', 'lie down', 'استلق', 'نوم هنا'),
+    build: () => ({ actionType: 'prone', actionParams: {}, label: 'Prone', startText: 'I will lie low here.', doneText: 'I am lying low here.' }),
+  },
+  {
+    test: (t) => has(t, 'sit', 'اجلس', 'اقعد'),
+    build: () => ({ actionType: 'sit', actionParams: {}, label: 'Sit', startText: 'I will sit here.', doneText: 'I am sitting here.' }),
+  },
+  {
+    test: (t) => has(t, 'repeated jump', 'jump repeatedly', 'قفز متكرر', 'اقفز'),
+    build: () => ({ actionType: 'jumpRepeated', actionParams: { count: 5 }, label: 'Repeated jump', startText: 'I will jump repeatedly.', doneText: 'Jumping finished.' }),
+  },
+  {
+    test: (t) => has(t, 'gfs', 'drop held', 'drop what you hold', 'ارم ما بيدك', 'ارمي ما بيدك'),
+    build: () => ({ actionType: 'dropHeld', actionParams: {}, label: 'Drop held item', startText: 'I will drop what I am holding.', doneText: 'Held item dropped.' }),
+  },
+  {
+    test: (t) => has(t, 'here', 'stay and plant here', 'sleep here', 'work here', 'ازرع هنا', 'نم هنا', 'اعمل هنا', 'قف هنا'),
+    build: () => ({ actionType: 'here', actionParams: {}, label: 'Work here', startText: 'I will work right here.', doneText: 'I am staying here.' }),
+  },
+  {
     test: (t) => has(t, 'fish', 'go fishing', 'catch fish', 'fishing'),
     build: () => ({
       actionType: 'fish', actionParams: {}, label: 'Go fishing',
@@ -33,7 +90,7 @@ const RULES: Rule[] = [
     }),
   },
   {
-    test: (t) => has(t, 'show me', 'show inventory', 'what do you have', 'what have you got'),
+    test: (t) => has(t, 'show me', 'show inventory', 'what do you have', 'what have you got', 'اعطني قائمة', 'أظهر لي', 'show me', 'قائمة', 'الأوامر', 'مساعدة'),
     build: () => ({
       actionType: 'showInventory',
       actionParams: {},
@@ -43,7 +100,20 @@ const RULES: Rule[] = [
     }),
   },
   {
-    test: (t) => has(t, 'run', 'run away', 'escape', 'flee', 'retreat'),
+    test: (t) => {
+      const hasBuildHouse = /\b(build|ابني|أنشئ|انشئ|بناء)\b/i.test(t) && /\b(house|منزل)\b/i.test(t);
+      return hasBuildHouse || has(t, 'build me a house', 'build a house', 'make a house', 'ابني لي منزلا', 'ابني منزل', 'أنشئ منزلا');
+    },
+    build: () => ({
+      actionType: 'buildHouse',
+      actionParams: {},
+      label: 'Build a house',
+      startText: 'I will build a small house using wood.',
+      doneText: 'House is ready.',
+    }),
+  },
+  {
+    test: (t) => has(t, 'run', 'run away', 'escape', 'flee', 'retreat', 'اهرب', 'هرب', 'نجا'),
     build: () => ({
       actionType: 'runAway',
       actionParams: {},
@@ -73,7 +143,7 @@ const RULES: Rule[] = [
     }),
   },
   {
-    test: (t) => has(t, 'find village', 'find dog', 'find cat', 'find horse', 'find camel', 'find flower', 'find potato', 'find crop', 'find a bed', 'find bed'),
+    test: (t) => has(t, 'find village', 'find dog', 'find cat', 'find horse', 'find camel', 'find flower', 'find potato', 'find crop', 'find a bed', 'find bed', 'ابحث عن القرية', 'جد القرية', 'ابحث عن الصندوق', 'جد الصندوق', 'ابحث عن الفراش', 'جد الفراش'),
     build: (t) => ({
       actionType: 'findEntity',
       actionParams: { query: t.replace(/^.*?find\s+/, '').replace(/^a\s+/, '').trim() },
@@ -83,7 +153,7 @@ const RULES: Rule[] = [
     }),
   },
   {
-    test: (t) => has(t, 'find treasure', 'search treasure', 'find chest', 'look for treasure'),
+    test: (t) => has(t, 'find treasure', 'search treasure', 'find chest', 'look for treasure', 'ابحث عن الصندوق', 'جد الصندوق', 'ابحث عن الكنوز'),
     build: () => ({
       actionType: 'findEntity', actionParams: { query: 'treasure' }, label: 'Find treasure',
       startText: 'I will search for treasure chests nearby.', doneText: 'Treasure search finished.',
@@ -92,7 +162,7 @@ const RULES: Rule[] = [
   {
     test: (t) => {
       const s = t.trim();
-      return s === 'menu' || s === 'commands' || s === 'help' || s === 'open menu';
+      return s === 'menu' || s === 'commands' || s === 'help' || s === 'open menu' || s === 'قائمة' || s === 'الأوامر' || s === 'مساعدة';
     },
     build: () => ({
       actionType: 'showMenu',
@@ -113,7 +183,17 @@ const RULES: Rule[] = [
     }),
   },
   {
-    test: (t) => has(t, 'stop', 'halt', 'freeze', 'cancel', 'stand still'),
+    test: (t) => has(t, 'dont follow me', 'do not follow me', 'stop following me', 'leave me alone', 'لا تتبعني', 'لا أريد أن تتبعني'),
+    build: () => ({
+      actionType: 'stop',
+      actionParams: {},
+      label: 'Stop following',
+      startText: 'Stopping now.',
+      doneText: 'All actions stopped.',
+    }),
+  },
+  {
+    test: (t) => has(t, 'stop', 'halt', 'freeze', 'cancel', 'stand still', 'توقف', 'قف', 'توقف هنا'),
     build: () => ({
       actionType: 'stop',
       actionParams: {},
@@ -135,7 +215,7 @@ const RULES: Rule[] = [
     }),
   },
   {
-    test: (t) => has(t, 'follow me', 'follow', 'come with me', 'tail me', 'ride with me', 'come ride'),
+    test: (t) => has(t, 'follow me', 'follow', 'come with me', 'tail me', 'come ride', 'fly with me', 'اتبعني', 'تبعني', 'تعال معي', 'طيري معي'),
     build: () => ({
       actionType: 'followPlayer',
       actionParams: { distance: 3 },
@@ -145,7 +225,55 @@ const RULES: Rule[] = [
     }),
   },
   {
-    test: (t) => has(t, 'come here', 'come to me', 'go to me', 'come', 'over here'),
+    test: (t) => has(t, 'ride with me', 'entr', 'enter', 'mount', 'board', 'اركب معي', 'الانضمام'),
+    build: () => ({
+      actionType: 'rideVehicle',
+      actionParams: { distance: 3 },
+      label: 'Ride vehicle',
+      startText: 'I will get on the vehicle.',
+      doneText: 'I am riding with you.',
+    }),
+  },
+  {
+    test: (t) => has(t, 'exit', 'get out', 'leave boat', 'leave vehicle', 'اخرج', 'خروج'),
+    build: () => ({
+      actionType: 'exitVehicle',
+      actionParams: {},
+      label: 'Exit vehicle',
+      startText: 'I will get out of the vehicle.',
+      doneText: 'I left the vehicle.',
+    }),
+  },
+  {
+    test: (t) => has(t, 'come get', 'come fetch', 'fetch me', 'get me', 'come collect'),
+    build: (t) => {
+      const item = extractItem(t.replace(/^come get\s+/i, '').replace(/^come fetch\s+/i, '').replace(/^fetch me\s+/i, '').replace(/^get me\s+/i, '')) ?? 'oak_log';
+      const count = extractCount(t, 10);
+      return {
+        actionType: 'collectBlocks',
+        actionParams: { blockType: item, count },
+        label: `Collect ${count} ${prettyName(item)}`,
+        startText: `Okay, I will get ${count} ${prettyName(item)}.`,
+        doneText: `Finished collecting ${prettyName(item)}.`,
+      };
+    },
+  },
+  {
+    test: (t) => /\d/.test(t) && !!extractItem(t),
+    build: (t) => {
+      const item = extractItem(t) ?? 'oak_log';
+      const count = extractCount(t, 10);
+      return {
+        actionType: 'collectBlocks',
+        actionParams: { blockType: item, count },
+        label: `Collect ${count} ${prettyName(item)}`,
+        startText: `Okay, I will get ${count} ${prettyName(item)}.`,
+        doneText: `Finished collecting ${prettyName(item)}.`,
+      };
+    },
+  },
+  {
+    test: (t) => has(t, 'come here', 'come to me', 'go to me', 'come', 'over here', 'تعال هنا', 'تعال إلي', 'أقرب إلي'),
     build: () => ({
       actionType: 'goToPlayer',
       actionParams: { distance: 2 },
@@ -182,7 +310,17 @@ const RULES: Rule[] = [
     }),
   },
   {
-    test: (t) => has(t, 'give me', 'give you', 'drop me', 'hand me', 'toss me'),
+    test: (t) => has(t, 'mine diamond', 'mine diamonds', 'احفر الماس', 'منجم الماس', 'تعدين الماس'),
+    build: () => ({
+      actionType: 'searchBlock',
+      actionParams: { blockType: 'diamond_ore' },
+      label: 'Mine diamond',
+      startText: 'I will look for diamond ore nearby.',
+      doneText: 'Diamond search finished.',
+    }),
+  },
+  {
+    test: (t) => has(t, 'give me', 'give you', 'drop me', 'hand me', 'toss me', 'اعطني', 'أعطني', 'ارمِ لي'),
     build: (t) => {
       const item = extractItem(t) ?? 'sword';
       const count = extractCount(t, item === 'all' ? 64 : 1);
@@ -244,6 +382,16 @@ const RULES: Rule[] = [
     },
   },
   {
+    test: (t) => has(t, 'make torches', 'craft torches', 'create torches', 'اصنع المشاعل', 'اصنع شعلات'),
+    build: () => ({
+      actionType: 'craft',
+      actionParams: { itemName: 'torch', count: 10 },
+      label: 'Make torches',
+      startText: 'I will craft some torches.',
+      doneText: 'Torches are ready.',
+    }),
+  },
+  {
     test: (t) => has(t, 'craft', 'make', 'create', 'build', 'smelt'),
     build: (t) => {
       const item = extractItem(t) ?? 'furnace';
@@ -285,7 +433,7 @@ const RULES: Rule[] = [
     },
   },
   {
-    test: (t) => has(t, 'equip sword', 'equip pickaxe', 'equip axe', 'equip shovel', 'equip shield', 'equip armor'),
+    test: (t) => has(t, 'equip sword', 'equip pickaxe', 'equip axe', 'equip shovel', 'equip shield', 'equip armor', 'put on armor', 'wear armor', 'put armor', 'wear shield', 'put on shield'),
     build: (t) => ({
       actionType: 'equip',
       actionParams: { itemName: extractItem(t) ?? 'sword' },
@@ -295,7 +443,7 @@ const RULES: Rule[] = [
     }),
   },
   {
-    test: (t) => has(t, 'sleep', 'go to bed', 'bed'),
+    test: (t) => has(t, 'sleep', 'go to bed', 'bed', 'نوم', 'اذهب إلى السرير', 'السرير'),
     build: () => ({
       actionType: 'goToBed',
       actionParams: {},
@@ -305,7 +453,7 @@ const RULES: Rule[] = [
     }),
   },
   {
-    test: (t) => has(t, 'eat', 'food', 'hungry'),
+    test: (t) => has(t, 'eat', 'food', 'hungry', 'كل الطعام', 'تناول الطعام', 'تغذية', 'اكل', 'طعام'),
     build: () => ({
       actionType: 'eat',
       actionParams: {},
@@ -344,6 +492,9 @@ export function describeIntent(intent: ParsedIntent): string {
 
 export const EXAMPLE_TRIGGERS = [
   'go fishing',
+  'build me a house',
+  'mine diamond',
+  'make torches',
   'find treasure',
   'find chest',
   'ride with me',
@@ -366,6 +517,9 @@ export const EXAMPLE_TRIGGERS = [
   'craft a shield',
   'craft torches',
   'find a bed',
+  'build me a house',
+  'mine diamond',
+  'make torches',
   'eat food',
   'equip sword',
   'show me',
@@ -381,11 +535,35 @@ export const EXAMPLE_TRIGGERS = [
   'how do I craft a sword',
   'follow me',
   'follow me and help me',
+  'fly with me',
+  'entr',
+  'come get diamond',
+  'come get gold',
+  'come get stone',
+  'put on armor',
+  'wear armor',
+  'dont follow me',
   'stop here',
   'stop',
   'come here',
   'give me everything',
   'give me a sword',
+  'give me food',
+  'give me all',
+  'ابني لي منزلا',
+  'احفر الماس',
+  'اصنع المشاعل',
+  'اذهب للصيد',
+  'ابحث عن القرية',
+  'ابحث عن الصندوق',
+  'اهرب',
+  'نوم',
+  'كل الطعام',
+  'اعطني طعام',
+  'اعطني سيف',
+  'اعطني كل شيء',
+  'اتبعني',
+  'لا تتبعني',
   'give me armor',
   'give me food',
   'give me a boat',

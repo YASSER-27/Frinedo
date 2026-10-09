@@ -44,6 +44,7 @@ export const ITEM_ALIASES: Array<[string, string]> = [
   ['torches', 'torch'],
   ['stick', 'stick'],
   ['sticks', 'stick'],
+  ['ston', 'stone'],
   ['plank', 'oak_planks'],
   ['planks', 'oak_planks'],
   ['wood plank', 'oak_planks'],
@@ -163,7 +164,7 @@ export function resolveBlockVariants(name: string): string[] {
 }
 
 export function extractCount(text: string, fallback = 1): number {
-  const match = text.match(/\b(\d+)\b/);
+  const match = text.match(/(\d+)(?=[a-zA-Z]|\s*$)/);
   if (!match) return fallback;
   return Math.min(64, Math.max(1, Number(match[1])));
 }
@@ -173,6 +174,7 @@ export function extractItem(text: string): string | null {
   for (const [alias, item] of ITEM_ALIASES) {
     if (lower.includes(alias)) return item;
   }
+  if (lower.includes('block')) return 'stone';
   return null;
 }
 

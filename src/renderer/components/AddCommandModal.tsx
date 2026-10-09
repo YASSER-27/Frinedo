@@ -23,6 +23,7 @@ function Icon({ name }: { name: 'upload' | 'play' | 'spark' | 'trash' | 'cancel'
 
 const BUILTIN_SLUGS: Record<string, string> = {
   'show me': 'show-me', 'run away': 'run-away', sleep: 'sleep', 'find village': 'find-village',
+  'build me a house': 'build-house', 'mine diamond': 'mine-diamond', 'make torches': 'make-torches',
   'find dog': 'find-dog', 'find cat': 'find-cat', 'find horse': 'find-horse', 'find camel': 'find-camel',
   'save house': 'save-house', 'save me': 'save-me', 'how do I craft a sword': 'how-craft-sword',
   'follow me': 'follow-me', 'follow me and help me': 'follow-me-help', 'stop here': 'stop-here', stop: 'stop',
@@ -38,6 +39,48 @@ const BUILTIN_SLUGS: Record<string, string> = {
   'craft a pickaxe': 'craft-pickaxe', 'craft an axe': 'craft-axe', 'craft a shovel': 'craft-shovel',
   'craft a shield': 'craft-shield', 'craft torches': 'craft-torches', 'find a bed': 'find-bed',
   'eat food': 'eat-food', 'equip sword': 'equip-sword',
+  'fly with me': 'follow-me', entr: 'follow-me', enter: 'follow-me',
+  'come get diamond': 'come-get-diamond', 'come get gold': 'come-get-gold', 'come get stone': 'come-get-stone',
+  'dont follow me': 'stop-following', 'do not follow me': 'stop-following',
+  'wear armor': 'wear-armor', 'put on armor': 'wear-armor',
+  'ابني لي منزلا': 'build-house', 'احفر الماس': 'mine-diamond', 'اصنع المشاعل': 'make-torches',
+  'ابحث عن القرية': 'find-village', 'ابحث عن الصندوق': 'find-chest', 'اهرب': 'run-away',
+  'كل الطعام': 'eat-food', 'نوم': 'sleep', 'اعطني طعام': 'give-food', 'اعطني سيف': 'give-sword',
+  'اعطني كل شيء': 'give-everything', 'اتبعني': 'follow-me', 'لا تتبعني': 'stop-following',
+  'طيري معي': 'follow-me', 'الانضمام': 'follow-me', 'ارتدي الدروع': 'wear-armor',
+};
+
+const BUILTIN_ARABIC_PHRASES: Record<string, string> = {
+  'show me': 'أظهر لي', 'run away': 'اهرب', sleep: 'نوم', 'find village': 'ابحث عن القرية',
+  'build me a house': 'ابني لي منزلا', 'mine diamond': 'احفر الماس', 'make torches': 'اصنع المشاعل',
+  'find dog': 'ابحث عن الكلب', 'find cat': 'ابحث عن القطة', 'find horse': 'ابحث عن الحصان', 'find camel': 'ابحث عن الجمل',
+  'save house': 'احفظ المنزل', 'save me': 'احفظني', 'how do I craft a sword': 'كيف أصنع سيفًا',
+  'follow me': 'اتبعني', 'follow me and help me': 'اتبعني وساعدني', 'stop here': 'قف هنا', stop: 'توقف',
+  'come here': 'تعال هنا', 'give me everything': 'اعطني كل شيء', 'give me a sword': 'اعطني سيف',
+  'give me armor': 'اعطني درع', 'give me food': 'اعطني طعام', 'give me a boat': 'اعطني قارب',
+  'bring me 10 wood': 'احضر لي 10 خشب', 'bring me 16 stone': 'احضر لي 16 حجر', 'search for diamond': 'ابحث عن الماس',
+  'search for gold': 'ابحث عن الذهب', 'create a furnace': 'اصنع فرن', 'craft a crafting table': 'اصنع طاولة صناعة',
+  'go fishing': 'اذهب للصيد', 'find treasure': 'ابحث عن الكنوز', 'find chest': 'ابحث عن الصندوق', 'ride with me': 'اركب معي',
+  'kill this': 'اقتل هذا', 'tame dog': 'دجن الكلب', 'tame cat': 'دجن القطة', 'farm crops': 'اعمل في المحاصيل',
+  'plant seeds': 'زرع البذور', 'harvest crops': 'احصد المحاصيل', 'bring me sand': 'احضر لي رمل',
+  'bring me cobblestone': 'احضر لي حجر مكسر', 'bring me dirt': 'احضر لي تراب', 'bring me gravel': 'احضر لي حصى',
+  'search for iron': 'ابحث عن الحديد', 'search for coal': 'ابحث عن الفحم', 'craft a sword': 'اصنع سيف',
+  'craft a pickaxe': 'اصنع فأس التعدين', 'craft an axe': 'اصنع فأس', 'craft a shovel': 'اصنع مجرفة',
+  'craft a shield': 'اصنع درع', 'craft torches': 'اصنع المشاعل', 'find a bed': 'ابحث عن سرير',
+  'eat food': 'كل الطعام', 'equip sword': 'جهز السيف', 'fly with me': 'طيري معي',
+  entr: 'الانضمام', 'come get diamond': 'تعال واحضر الماس', 'come get gold': 'تعال واحضر الذهب',
+  'come get stone': 'تعال واحضر الحجر', 'dont follow me': 'لا تتبعني', 'do not follow me': 'لا تتبعني',
+  'wear armor': 'ارتدي الدرع', 'put on armor': 'ارتدي الدرع', 'give me all': 'اعطني كل شيء',
+};
+
+const BUILTIN_ARABIC_ACTIONS: Record<string, string> = {
+  'Go fishing': 'الصيد', 'Tame animal': 'تدجين الحيوان', 'Farm crops': 'زراعة المحاصيل', 'Show inventory': 'عرض المخزون',
+  'Build a house': 'بناء منزل', 'Run away': 'الهروب', 'Save location': 'حفظ الموقع', 'Beginner help': 'مساعدة المبتدئين',
+  'Find something': 'بحث عن شيء', 'Find treasure': 'بحث عن الكنوز', 'Open menu': 'فتح القائمة', 'Stop here': 'التوقف هنا',
+  'Stop following': 'إيقاف المتابعة', 'Stop': 'توقف', 'Follow and protect': 'المتابعة والحماية', 'Follow player': 'اتبع اللاعب',
+  'Collect 8 oak log': 'جمع 8 خشب البلوط', 'Go to player': 'الذهاب إلى اللاعب', 'Attack target': 'هجوم على الهدف',
+  'Give everything': 'إعطاء كل شيء', 'Mine diamond': 'حفر الماس', 'Give a sword': 'إعطاء سيف', 'Give food': 'إعطاء طعام',
+  'Give armor': 'إعطاء درع', 'Give boat': 'إعطاء قارب', 'Equip item': 'تجهيز العنصر', 'Sleep': 'النوم', 'Eat': 'الأكل',
 };
 
 export default function AddCommandModal({ onSaved, commands }: Props) {
@@ -53,13 +96,97 @@ export default function AddCommandModal({ onSaved, commands }: Props) {
   const [status, setStatus] = useState('');
   const [generating, setGenerating] = useState<'start' | 'done' | null>(null);
   const [openList, setOpenList] = useState(false);
+  const [builtinLanguage, setBuiltinLanguage] = useState<'en' | 'ar'>('en');
   const [voice, setVoice] = useState('F1');
   const [speed, setSpeed] = useState(1);
   const [pitch, setPitch] = useState(0);
   const [playingBuiltin, setPlayingBuiltin] = useState<string | null>(null);
-  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const audioPoolRef = useRef(new Map<string, HTMLAudioElement>());
+
+  const stopAudio = () => {
+    for (const [key, audio] of audioPoolRef.current.entries()) {
+      audio.pause();
+      audio.onended = null;
+      audio.onerror = null;
+      audio.src = '';
+      audio.removeAttribute('src');
+      audio.load();
+      audioPoolRef.current.delete(key);
+    }
+  };
+
+  const playAudio = (src: string) => {
+    const resolved = /^data:|^blob:|^file:|^https?:\/\//i.test(src) ? src : `file://${src.replace(/\\/g, '/')}`;
+    const existing = audioPoolRef.current.get(resolved);
+    if (existing) {
+      existing.currentTime = 0;
+      void existing.play().catch(() => setStatus('Could not play audio.'));
+      return;
+    }
+
+    if (audioPoolRef.current.size >= 3) {
+      const oldestKey = audioPoolRef.current.keys().next().value as string | undefined;
+      if (oldestKey) {
+        const oldest = audioPoolRef.current.get(oldestKey);
+        oldest?.pause();
+        oldest?.removeAttribute('src');
+        oldest?.load();
+        audioPoolRef.current.delete(oldestKey);
+      }
+    }
+
+    const audio = new Audio();
+    audio.onended = () => {
+      audioPoolRef.current.delete(resolved);
+      audio.src = '';
+      audio.removeAttribute('src');
+      audio.load();
+    };
+    audio.onerror = () => {
+      audioPoolRef.current.delete(resolved);
+      audio.src = '';
+      audio.removeAttribute('src');
+      audio.load();
+    };
+    audio.src = resolved;
+    audioPoolRef.current.set(resolved, audio);
+    void audio.play().catch(() => setStatus('Could not play audio.'));
+  };
 
   const mapped = useMemo(() => parseChat(`${trigger} ${startText}`), [trigger, startText]);
+
+  const displayPhrase = (phrase: string) =>
+    builtinLanguage === 'ar' ? BUILTIN_ARABIC_PHRASES[phrase] ?? phrase : phrase;
+
+  const displayAction = (phrase?: string) => {
+    const base = phrase ?? 'Chat response';
+    return builtinLanguage === 'ar' ? BUILTIN_ARABIC_ACTIONS[base] ?? base : base;
+  };
+
+  const builtinArabicLabels: Record<string, string> = {
+    flw: 'اتبعني', gud: 'تعال هنا', stp: 'توقف', hold: 'ابق هنا', here: 'اعمل هنا',
+    wood: 'اجمع خشب', stn: 'اجمع حجر', sd: 'اجمع رمل', cbl: 'اجمع حجر مكسر', grv: 'اجمع حصى',
+    dirt: 'اجمع تراب', diam: 'ابحث عن الماس', gold: 'ابحث عن الذهب', iron: 'ابحث عن الحديد',
+    coal: 'ابحث عن الفحم', furn: 'اصنع فرن', tbl: 'اصنع طاولة صناعة', swd: 'اصنع سيف',
+    pick: 'اصنع فأس تعدين', axe: 'اصنع فأس', shov: 'اصنع مجرفة', shld: 'اصنع درع', torc: 'اصنع مشاعل',
+    fish: 'اذهب للصيد', inv: 'اعرض المخزون', bed: 'اذهب إلى السرير', food: 'كل الطعام', home: 'ابن منزلا',
+    dog: 'ابحث عن الكلب', cat: 'ابحث عن القطة', crop: 'اعمل في المحاصيل', seed: 'ازرع البذور',
+    hunt: 'هاجم', chest: 'ابحث عن صندوق', vill: 'ابحث عن قرية', saveh: 'احفظ المنزل', savem: 'احفظ موقعي',
+    jump: 'اقفز', flee: 'اهرب', ride: 'اركب', out: 'اخرج', atck: 'هاجم', all: 'اعطني كل شيء',
+    arm: 'اعطني درع', sword: 'اعطني سيف', boat: 'اعطني قارب', w16: 'اجمع 16 خشب', s16: 'اجمع 16 حجر',
+    findv: 'ابحث عن قرية', findb: 'ابحث عن سرير', arrive: 'تعال هنا', guard: 'احمني', keep: 'ابق هنا', stopf: 'لا تتبعني',
+    ip: 'أظهر موقعي', sit: 'اجلس', 'jump repeatedly': 'اقفز بشكل متكرر', crouch: 'انحن', prone: 'استلق', gfs: 'ارم ما بيدك',
+  };
+
+  const builtinAudioButtons = builtinLanguage === 'ar'
+    ? [
+        { id: 'F1', label: 'AR Female' },
+        { id: 'M2', label: 'AR Male' },
+      ]
+    : [
+        { id: 'F1', label: 'Female' },
+        { id: 'M2', label: 'Male' },
+      ];
 
   useEffect(() => {
     if (!mapped) return;
@@ -81,31 +208,76 @@ export default function AddCommandModal({ onSaved, commands }: Props) {
     setOpenList(false);
   };
 
-  const play = (src?: string) => {
-    if (!src) return;
-    if (audioRef.current) audioRef.current.pause();
-    const audio = new Audio(src);
-    audioRef.current = audio;
-    void audio.play().catch(() => setStatus('Could not play audio.'));
+  const applyCommand = (command: BotCommand) => {
+    setTrigger(command.triggerPhrases.join(', '));
+    setStartText(command.responseStart || command.responseText || '');
+    setDoneText(command.responseDone || '');
+    setVoiceStart(undefined);
+    setVoiceDone(undefined);
+    setStartPreview(undefined);
+    setDonePreview(undefined);
+    setStatus(`Editing ${command.triggerPhrases[0] ?? command.actionType}. Save it as a custom command after changing the text.`);
+    setOpenList(false);
   };
 
-  const playBuiltin = async (phrase: string, language: 'en' | 'ar', voice: 'F1' | 'M2') => {
+  const play = (src?: string) => {
+    if (!src) return;
+    playAudio(src);
+  };
+
+  const playBuiltin = async (command: BotCommand, language: 'en' | 'ar', voice: 'F1' | 'M2') => {
+    const phrase = command.triggerPhrases[0] ?? command.actionType;
     const slug = BUILTIN_SLUGS[phrase];
-    if (!slug) return;
     const key = `${phrase}:${language}:${voice}`;
     if (playingBuiltin === key) {
-      audioRef.current?.pause();
-      audioRef.current = null;
+      stopAudio();
       setPlayingBuiltin(null);
       return;
     }
-    audioRef.current?.pause();
-    const data = await getApi().tts.readBuiltinAudio({ slug, language, voice });
+    stopAudio();
+
+    let data = slug ? await getApi().tts.readBuiltinAudio({ slug, language, voice }) : null;
+    if (!data) {
+      const path = command.voiceStartVariants?.[`${language}:${voice}`];
+      data = path ? await getApi().tts.readAudio(path) : null;
+    }
+    if (!data && slug) {
+      const generated = await getApi().tts.generate({
+        text: phrase,
+        filename: `${slug}-${language}-${voice}.wav`,
+        voice,
+        speed,
+        pitch,
+      });
+      data = generated.dataUrl ?? null;
+    }
     if (!data) return;
-    const audio = new Audio(data);
-    audioRef.current = audio;
+
+    const audio = new Audio();
+    const previous = audioPoolRef.current.get(data) ?? null;
+    if (previous) {
+      previous.currentTime = 0;
+      void previous.play().catch(() => setStatus('Could not play audio.'));
+      setPlayingBuiltin(key);
+      return;
+    }
+    audio.onended = () => {
+      audioPoolRef.current.delete(data);
+      setPlayingBuiltin(null);
+      audio.src = '';
+      audio.removeAttribute('src');
+      audio.load();
+    };
+    audio.onerror = () => {
+      audioPoolRef.current.delete(data);
+      setPlayingBuiltin(null);
+      audio.src = '';
+      audio.removeAttribute('src');
+      audio.load();
+    };
+    audio.src = data;
+    audioPoolRef.current.set(data, audio);
     setPlayingBuiltin(key);
-    audio.onended = () => setPlayingBuiltin(null);
     void audio.play().catch(() => {
       setPlayingBuiltin(null);
       setStatus('Could not play audio.');
@@ -204,18 +376,44 @@ export default function AddCommandModal({ onSaved, commands }: Props) {
       {activeTab === 'saved' && (
         <section className="library-view">
           <div className="section-label">Saved commands</div>
-          {commands.length === 0 ? <p className="hint">No saved commands yet.</p> : commands.map((cmd) => (
-            <div className="cmd-item" key={cmd.id}>
-              <div><strong>{cmd.triggerPhrases.join(', ')}</strong><div className="hint">{cmd.responseStart}</div></div>
-              <button className="btn danger icon-btn" title="Delete command" aria-label="Delete command" onClick={async () => { await getApi().commands.remove(cmd.id); onSaved(); }}><Icon name="trash" /></button>
+          {commands.filter((command) => !command.isBuiltIn).length === 0 ? (
+            <p className="hint">No saved commands yet.</p>
+          ) : (
+            <div className="system-command-grid saved-command-grid">
+              {commands.filter((command) => !command.isBuiltIn).map((cmd) => (
+                <div className="system-command saved-command-row" key={cmd.id}>
+                  <strong>{cmd.triggerPhrases[0] ?? 'Command'}</strong>
+                  <span>{cmd.responseStart || 'No response text yet.'}</span>
+                  <button
+                    className="btn danger icon-btn"
+                    title="Delete command"
+                    aria-label="Delete command"
+                    onClick={async () => {
+                      await getApi().commands.remove(cmd.id);
+                      onSaved();
+                    }}
+                  >
+                    <Icon name="trash" />
+                  </button>
+                </div>
+              ))}
             </div>
-          ))}
+          )}
         </section>
       )}
 
       {activeTab === 'system' && (
         <section className="library-view">
           <div className="section-label">Built-in command system</div>
+          <div className="row">
+            <div className="field">
+              <label>Built-in language</label>
+              <select value={builtinLanguage} onChange={(event) => setBuiltinLanguage(event.target.value as 'en' | 'ar')}>
+                <option value="en">English</option>
+                <option value="ar">Arabic</option>
+              </select>
+            </div>
+          </div>
           <input
             className="system-search"
             type="search"
@@ -225,17 +423,31 @@ export default function AddCommandModal({ onSaved, commands }: Props) {
             aria-label="Search built-in commands"
           />
           <div className="system-command-grid">
-            {EXAMPLE_TRIGGERS.filter((phrase) => phrase.toLowerCase().includes(systemSearch.trim().toLowerCase())).map((phrase) => {
+            {commands.filter((command) => command.isBuiltIn).filter((command) => {
+              const phrase = command.triggerPhrases[0] ?? command.actionType;
+              const search = systemSearch.trim().toLowerCase();
+              if (!search) return true;
+              const text = `${phrase} ${displayPhrase(phrase)}`.toLowerCase();
+              return text.includes(search);
+            }).map((command) => {
+              const phrase = command.triggerPhrases[0] ?? command.actionType;
               const parsed = parseChat(phrase);
-              const hasAudio = Boolean(BUILTIN_SLUGS[phrase]);
+              const hasAudio = Boolean(command.voiceStartVariants?.[`${builtinLanguage}:F1`] || BUILTIN_SLUGS[phrase]);
+              const label = builtinLanguage === 'ar' ? (builtinArabicLabels[phrase] ?? displayPhrase(phrase)) : phrase;
               return (
                 <div className="system-command" key={phrase}>
-                  <strong>{phrase}</strong><span>{parsed?.label ?? 'Chat response'}</span>
+                  <strong>{label}</strong><span>{displayAction(parsed?.label ?? command.actionType)}</span>
                   <div className="system-command-audio">
-                    <button className="btn audio-btn" disabled={!hasAudio} onClick={() => void playBuiltin(phrase, 'en', 'F1')}>{playingBuiltin === `${phrase}:en:F1` ? 'Stop EN Female' : 'EN Female'}</button>
-                    <button className="btn audio-btn" disabled={!hasAudio} onClick={() => void playBuiltin(phrase, 'en', 'M2')}>{playingBuiltin === `${phrase}:en:M2` ? 'Stop EN Male' : 'EN Male'}</button>
-                    <button className="btn audio-btn" disabled={!hasAudio} onClick={() => void playBuiltin(phrase, 'ar', 'F1')}>{playingBuiltin === `${phrase}:ar:F1` ? 'Stop AR Female' : 'AR Female'}</button>
-                    <button className="btn audio-btn" disabled={!hasAudio} onClick={() => void playBuiltin(phrase, 'ar', 'M2')}>{playingBuiltin === `${phrase}:ar:M2` ? 'Stop AR Male' : 'AR Male'}</button>
+                    {builtinAudioButtons.map(({ id, label }) => (
+                      <button
+                        key={`${phrase}:${builtinLanguage}:${id}`}
+                        className="btn audio-btn"
+                        disabled={!hasAudio}
+                        onClick={() => void playBuiltin(command, builtinLanguage, id as 'F1' | 'M2')}
+                      >
+                        {playingBuiltin === `${phrase}:${builtinLanguage}:${id}` ? `Stop ${label}` : label}
+                      </button>
+                    ))}
                   </div>
                 </div>
               );
@@ -255,9 +467,10 @@ export default function AddCommandModal({ onSaved, commands }: Props) {
         </button>
         {openList && (
           <div className="dropdown-list">
-            {EXAMPLE_TRIGGERS.map((t) => (
-              <button key={t} type="button" onClick={() => applyExample(t)}>
-                {t}
+            {commands.map((command) => (
+              <button key={command.id} type="button" onClick={() => applyCommand(command)}>
+                {command.triggerPhrases[0] ?? command.actionType}
+                <small>{command.actionType}</small>
               </button>
             ))}
           </div>
@@ -318,7 +531,8 @@ export default function AddCommandModal({ onSaved, commands }: Props) {
         </div>
         {generating === 'start' && (
           <div className="voice-loading" role="status">
-            <span />Generating voice...
+            <div className="loader-bar" />
+            <span>Generating voice...</span>
             <button className="btn icon-btn loading-cancel" title="Cancel generation" aria-label="Cancel generation" onClick={() => void cancelVoice()}><Icon name="cancel" /></button>
           </div>
         )}
@@ -340,7 +554,8 @@ export default function AddCommandModal({ onSaved, commands }: Props) {
         </div>
         {generating === 'done' && (
           <div className="voice-loading" role="status">
-            <span />Generating voice...
+            <div className="loader-bar" />
+            <span>Generating voice...</span>
             <button className="btn icon-btn loading-cancel" title="Cancel generation" aria-label="Cancel generation" onClick={() => void cancelVoice()}><Icon name="cancel" /></button>
           </div>
         )}

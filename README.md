@@ -21,6 +21,7 @@ Version: **1.1.8**
 
 <img width="900" height="600" alt="YassirSnap_1791584676097" src="https://github.com/user-attachments/assets/7c49bd4f-ab54-4ef7-99a6-a83a20dc361a" />
 
+<img width="900" height="600" alt="648031941-fb508737-f25b-4914-bee2-c4f4b0225aee" src="https://github.com/user-attachments/assets/0dfde28e-8a49-4eef-b172-9ae8855c200f" />
 
 ## Project Idea
 
